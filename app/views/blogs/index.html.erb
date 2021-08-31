@@ -1,0 +1,10 @@
+<h1>Popular blogs by our team</h1>
+
+<hr>
+
+<% @blogs.each do |blog| %>
+  <h3><%= blog.title %></h3>
+  <p><%= blog.author %></p>
+  <p><%= blog.intro %></p>
+  <p><%= blog.body %></p>
+<% end %>
