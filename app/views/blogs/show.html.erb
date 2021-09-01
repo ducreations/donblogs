@@ -18,8 +18,17 @@
   <strong>Comments:</strong>
 
   <%= render @blog.comments %>
-  <%= render 'comments/form' %>
 </p>
+
+  <div class="p-2 my-2">
+    <h2> Add a Comment </h2>
+    <%= form_for ([@blog, @blog.comments.build]) do |f| %>
+      <%= f.text_area :content %>
+      <%= f.hidden_field :user_id, value: current_user.id %>
+      <%= f.submit "Post comment" %>
+    <% end %>
+  </div>
+  <%# <%= render 'comments/form' %1> %>
 
 <% if current_user == @blog.user %>
   <%= link_to "Edit", edit_blog_path(@blog) %> |
