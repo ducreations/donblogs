@@ -1,6 +1,6 @@
 class BlogsController < ApplicationController
   before_action :authenticate_user!
-  before_action :id, only: [:edit, :update]
+  before_action :id, only: [:show, :edit, :update]
 
   def index
     @blogs = Blog.all
@@ -18,6 +18,9 @@ class BlogsController < ApplicationController
     else
       render :new
     end
+  end
+
+  def show
   end
 
   def edit

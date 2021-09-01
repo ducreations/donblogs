@@ -1,9 +1,17 @@
+<%= link_to "Create a blog", new_blog_path %>
+
 <h1>Popular blogs by our team</h1>
 
 <hr>
 
 <% @blogs.each do |blog| %>
   <h3><%= blog.title %></h3>
-  <p><%= blog.author %></p>
-  <p><%= blog.intro %></p>
+  <p class="p3"><%= blog.author %></p>
+  <p><%= blog.intro %>
+  <% if current_user == blog.user %>
+    <%= link_to "Edit", edit_blog_path(blog) %>
+  <% else %>
+    <%= link_to " read more", blog_path(blog) %>
+  <% end %>
+  </p>
 <% end %>
