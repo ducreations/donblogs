@@ -1,7 +1,27 @@
-<h2><%= @blog.title %></h2>
-<p class="p1">By <%= @blog.author %></p>
-<h3><%= @blog.intro %></h3>
-<p class="p2"><%= @blog.body %></p>
+<h2>
+  <%= @blog.title %>
+</h2>
 
-<hr>
+<p class="p1">
+  By <%= @blog.author %>
+</p>
+
+<h3>
+  <%= @blog.intro %>
+</h3>
+
+<p class="p2">
+  <%= @blog.body %>
+</p>
+
+<p>
+  <strong>Comments:</strong>
+
+  <%= render @blog.comments %>
+  <%= render 'comments/form' %>
+</p>
+
+<% if current_user == @blog.user %>
+  <%= link_to "Edit", edit_blog_path(@blog) %> |
+<% end %>
 <%= link_to "Back", blogs_path %>

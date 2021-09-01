@@ -8,10 +8,10 @@
   <h3><%= blog.title %></h3>
   <p class="p3"><%= blog.author %></p>
   <p><%= blog.intro %>
-  <% if current_user == blog.user %>
-    <%= link_to "Edit", edit_blog_path(blog) %>
-  <% else %>
+  <%# <% if current_user == blog.user %1> %>
+    <%# <%= link_to "Edit", edit_blog_path(blog) %1> %>
+  <%# <% else %1> %>
     <%= link_to " read more", blog_path(blog) %>
-  <% end %>
+  <%# <% end %1> %>
   </p>
 <% end %>
