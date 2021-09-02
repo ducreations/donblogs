@@ -1,17 +1,22 @@
-<%= link_to "Create a blog", new_blog_path %>
+<%= link_to "Create a blog", new_blog_path, class:"create" %>
 
 <h1>Popular blogs by our team</h1>
-
 <hr>
 
 <% @blogs.each do |blog| %>
+
   <h3><%= blog.title %></h3>
-  <p class="p3"><%= blog.author %></p>
-  <p><%= blog.intro %>
-  <%# <% if current_user == blog.user %1> %>
-    <%# <%= link_to "Edit", edit_blog_path(blog) %1> %>
-  <%# <% else %1> %>
-    <%= link_to " read more", blog_path(blog) %>
-  <%# <% end %1> %>
+
+  <p class="fw-light">
+    <%= blog.author %>
   </p>
+
+  <div class="intro">
+    <span><%= blog.intro %></span>
+  
+    <span class="show">
+      <%= link_to " read more", blog_path(blog) %>
+    </span>
+  </div>
+
 <% end %>

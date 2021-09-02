@@ -20,9 +20,36 @@ h2 {
 }
 
 h3:first-of-type {
-  margin: 20px 0;
+  margin: 20px 0 0;
 }
 
 h3 {
-  margin: 50px 0 20px;
+  margin: 50px 0 0;
+}
+
+.text-muted {
+  font-size: 15px;
+}
+
+.fs-3 {
+  margin: 0;
+}
+
+.logout {
+  color: black;
+}
+
+.create {
+  color: darkblue;
+}
+
+.intro {
+  font-weight: lighter;
+}
+
+.show {
+  color: yellow;
+  font-weight: normal;
+  font-size: 14px;
+  margin: 0 0 0 5px;
 }

@@ -6,6 +6,8 @@
 
   <%= f.hidden_field :user_id, value: current_user.id %>
 
-  <%= f.submit "Add comment" %>
+  <div class="actions">
+    <%= f.submit "Add comment", class:"btn btn-sm btn-primary" %>
+  </div><br>
 
 <% end %>

@@ -1,31 +1,33 @@
-<h2>
-  <%= @blog.title %>
-</h2>
+<div class="container">
+  <h2>
+    <%= @blog.title %>
+  </h2>
 
-<p class="p1">
-  By <%= @blog.author %>
-  <% if current_user == @blog.user %>
-  | <%= link_to "Edit", edit_blog_path(@blog) %>
-  <% end %>
-</p>
+  <p class="p1">
+    By <%= @blog.author %>
+    <% if current_user == @blog.user %>
+    | <%= link_to "Edit", edit_blog_path(@blog) %>
+    <% end %>
+  </p>
 
-<h3>
-  <%= @blog.intro %>
-</h3>
+  <h3>
+    <%= @blog.intro %>
+  </h3>
 
-<p class="p2">
-  <%= @blog.body %>
-</p>
+  <p class="p2">
+    <%= @blog.body %>
+  </p>
 
-<p>
-  <strong>Comments:</strong>
+  <p>
+    <strong>Comments:</strong>
 
-  <%= render @blog.comments %>
-  <%# <% if @comment.user.id == current_user %1> %>
-  <%#   <%= link_to "Delete", blog_comment_path, method: :delete %1> %>
-  <%# <% end %1> %>
-</p>
+    <%= render @blog.comments.order("created_at DESC") %>
+    <%# <% if @blog.comments.user == current_user %1> %>
+      <%# <%= link_to "Delete", blog_comment_path, method: :delete %1> %>
+    <%# <% end %1> %>
+  </p>
 
-<%= render 'comments/form' %>
+  <%= render 'comments/form' %>
 
-<%= link_to "Back", blogs_path %>
+  <%= link_to "Back", blogs_path %>
+</div>

@@ -1,0 +1,30 @@
+<div class="container">
+
+  <h2>Find your account</h2>
+  <hr>
+
+  <p class="text-muted">
+    Please enter your email to search for your account.
+  </p>
+
+  <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+    <%= render "devise/shared/error_messages", resource: resource %>
+
+    <div class="field">
+      <%= f.email_field :email,
+        placeholder: "Email",
+        required: true,
+        autofocus: true,
+        autocomplete: "email",
+        class:"form-control" %>
+    </div><br />
+
+    <div class="actions">
+      <%= link_to "Cancel", new_user_session_path,
+        class:"btn btn-sm btn-secondary" %>
+      <%= f.submit "Search",
+        class:"btn btn-sm btn-primary" %>
+    </div>
+  <% end %>
+
+</div>
