@@ -1,6 +1,17 @@
 <article>
-  <p><%= comment.content %></p>
-  <small>by <%= comment.user.name %></small>
+
+  <p class="fw-light">
+    <%= comment.user.name %>
+  </p>
+
+  <p class="comment">
+    <%= comment.content %>
+  </p>
+
+  <p class="fw-lighter">
+    <%= comment.created_at.strftime(" %I:%M %p %A") %>
+  </p>
+
 </article>
 
 <hr>
