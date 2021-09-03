@@ -1,14 +1,13 @@
 <%= link_to "Create a blog", new_blog_path, class:"create" %>
 
-<h1>Popular blogs by our team</h1>
-<hr>
+<h1>▾ Popular blogs by our team</h1>
 
 <% @blogs.each do |blog| %>
 
   <h3><%= blog.title %></h3>
 
   <p class="fw-light">
-    <%= blog.author %>
+  by <%= blog.author %>, <%= blog.created_at.strftime(" %-d %B %Y ") %>
   </p>
 
   <div class="intro">
@@ -18,5 +17,8 @@
       <%= link_to " read more", blog_path(blog) %>
     </span>
   </div>
+<hr>
 
 <% end %>
+
+<%= link_to "Home", home_index_path %>

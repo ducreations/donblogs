@@ -7,7 +7,7 @@ class User < ApplicationRecord
   has_many :comments, dependent: :destroy
 
   def name
-    email.split('@')[0].capitalize
+    "#{first_name} #{last_name}"
   end
 
 end

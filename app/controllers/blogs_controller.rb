@@ -1,9 +1,9 @@
 class BlogsController < ApplicationController
   before_action :authenticate_user!
-  before_action :id, only: [:show, :edit, :update]
+  before_action :id, only: [:show, :edit, :update, :destroy]
 
   def index
-    @blogs = Blog.all
+    @blogs = Blog.all.order("created_at  DESC")
   end
 
   def new
@@ -33,6 +33,11 @@ class BlogsController < ApplicationController
     else
       render :edit
     end
+  end
+
+  def destroy
+    @blog.destroy
+    redirect_to blogs_path, alert: "Blog deleted"
   end
 
   private
