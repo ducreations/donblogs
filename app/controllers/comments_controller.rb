@@ -11,6 +11,15 @@ class CommentsController < ApplicationController
     # end
   end
 
+  def destroy
+    comment = Comment.find(params[:id])
+    comment.delete
+
+    blog = Blog.find(params[:blog_id])
+    redirect_to blog_path(blog),
+      notice: "Your comment has been deleted"
+  end
+
   private
   
   def comment_params

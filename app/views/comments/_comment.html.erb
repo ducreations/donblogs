@@ -6,6 +6,12 @@
 
   <p class="comment">
     <%= comment.content %>
+    <% if current_user && current_user == comment.user %>
+      <%= link_to "Delete", blog_comment_path(@blog, comment),
+        method: :delete,
+        remote: false,
+        style: "float: right" %>
+    <% end %>
   </p>
 
   <p class="fw-lighter">
