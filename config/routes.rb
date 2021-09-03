@@ -3,8 +3,10 @@ Rails.application.routes.draw do
   root to: 'blogs#index'
   
   get 'home/index'
+  get 'users', to: 'users#index'
 
   resources :blogs do
     resources :comments
   end
+
 end
